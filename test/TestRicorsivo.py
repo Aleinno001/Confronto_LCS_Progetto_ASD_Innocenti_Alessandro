@@ -4,13 +4,17 @@ from approcci_lcs.Ricorsivo import Ricorsivo
 
 class TestRicorsivo(unittest.TestCase):
     def test_corretto_funzionamento(self):
-        ric = Ricorsivo('ABCDEFGHI', 'ABADRMMMMMHUBCDEFGHI')
+        ric = Ricorsivo('ABCDEFGHII', 'ABADRMMMMMHUBCDEFGHIKI')
 
-        correct_lcs = 'ABCDEFGHI'
+        correct_lcs = 'ABCDEFGHII'
+        correct_lcs_length = 10
 
-        result = ric.lcs()
+        ric.lcs()
 
-        self.assertEqual(result, correct_lcs)
+        test = ric.get_lcs_string()
+
+        self.assertEqual(ric.get_lcs_length(), correct_lcs_length)
+        self.assertEqual(ric.get_lcs_string(), correct_lcs)
 
 
 if __name__ == '__main__':
