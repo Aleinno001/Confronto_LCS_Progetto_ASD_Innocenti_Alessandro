@@ -1,14 +1,14 @@
 import unittest
-from approcci_lcs.ForzaBruta import ForzaBruta
+from approcci_lcs.Ricorsivo import Ricorsivo
 
 
-class TestForzaBruta(unittest.TestCase):
+class TestRicorsivo(unittest.TestCase):
     def test_corretto_funzionamento(self):
-        fb = ForzaBruta('ABCDEFGHI', 'ABADRMMMMMHUBCDEFGHI')
+        ric = Ricorsivo('ABCDEFGHI', 'ABADRMMMMMHUBCDEFGHI')
 
         correct_lcs = 'ABCDEFGHI'
 
-        result = fb.lcs()
+        result = ric.lcs()
 
         self.assertEqual(result, correct_lcs)
 
