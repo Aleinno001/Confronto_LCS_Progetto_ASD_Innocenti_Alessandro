@@ -29,7 +29,9 @@ class ForzaBruta:
 
     def _is_subsequence(self, subsequence):
         i = 0
-        for j in self.s2.__len__() - 1:
+        j = 0
+        while j < len(self.s2) and i < len(subsequence):
             if subsequence[i] == self.s2[j]:
                 i += 1
+            j += 1
         return i

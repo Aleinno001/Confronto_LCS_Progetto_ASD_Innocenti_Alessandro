@@ -4,9 +4,9 @@ from approcci_lcs.ForzaBruta import ForzaBruta
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
-        fb = ForzaBruta('ABCD', 'ACBAD')
+        fb = ForzaBruta('ABCDEFGHI', 'ABADRMMMMMHUBCDEFGHI')
 
-        correct_lcs = 'ABD'
+        correct_lcs = 'ABCDEFGHI'
 
         result = fb.lcs()
 
