@@ -5,7 +5,7 @@ from approcci_lcs.BottomUp import BottomUp
 
 class TestBottomUp(unittest.TestCase):
     def test_funzionamento(self):
-        bu = BottomUp('ABCDEFGHII', 'ABADRMMMMMHUBCDEFGHIKI')
+        bu = BottomUp('KAPBCDEFGHII', 'ABADRMMMMMHUBCDEFGHIKI')
 
         correct_lcs = 'ABCDEFGHII'
         correct_lcs_length = 10

@@ -4,7 +4,7 @@ from approcci_lcs.ForzaBruta import ForzaBruta
 
 class TestForzaBruta(unittest.TestCase):
     def test_corretto_funzionamento(self):
-        fb = ForzaBruta('ABCDEFGHII', 'ABADRMMMMMHUBCDEFGHIKI')
+        fb = ForzaBruta('KAPBCDEFGHII', 'ABADRMMMMMHUBCDEFGHIKI')
 
         correct_lcs = 'ABCDEFGHII'
         correct_lcs_length = 10
