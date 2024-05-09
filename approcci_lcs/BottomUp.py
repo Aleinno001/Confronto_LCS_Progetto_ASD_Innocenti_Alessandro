@@ -1,8 +1,15 @@
 class BottomUp:
+    length = 0
+    string = ''
+
     def __init__(self, s1, s2):
         self.s1 = s1
         self.s2 = s2
-        self.b = [len(s1), len(s2)]
+        self.b = [[''] * (len(s2) + 1) for _ in range(len(s1) + 1)]
+
+    def lcs(self):
+        self.length = self.lcs_length(self.s1, self.s2)
+        self.string = self.lcs_string()
 
     def lcs_length(self, s1, s2):
         m, n = len(s1), len(s2)
@@ -20,7 +27,7 @@ class BottomUp:
                     self.b[i][j] = '←'
         return dp[m][n]
 
-    def get_lcs(self):
+    def lcs_string(self):
         i = len(self.s1)
         j = len(self.s2)
         lcs = []
@@ -34,3 +41,9 @@ class BottomUp:
             else:
                 j -= 1
         return ''.join(lcs[::-1])
+
+    def get_lcs_length(self):
+        return self.length
+
+    def get_lcs_string(self):
+        return self.string
