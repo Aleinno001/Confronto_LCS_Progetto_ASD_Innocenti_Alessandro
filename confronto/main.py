@@ -32,6 +32,16 @@ for i in range(2,16):
     t1 = time()
     y_recursive_axis.append(t1 - t0)
 
+    t0 = time()
+    RicorsivoConMemorizzazione.get_lcs(random_word_s1, random_word_s2)
+    t1 = time()
+    y_recursive_memoization_axis.append(t1 - t0)
+
+    t0 = time()
+    BottomUp.get_lcs(random_word_s1, random_word_s2)
+    t1 = time()
+    y_bottom_up_axis.append(t1 - t0)
+
 plt.plot(x_number_axis, y_brute_force_axis)
 plt.title('Forza Bruta')
 plt.xlabel('Lunghezza stringhe (caratteri)')
@@ -44,3 +54,14 @@ plt.xlabel('Lunghezza stringhe (caratteri)')
 plt.ylabel('Tempo impiegato (secondi)')
 plt.show()
 
+plt.plot(x_number_axis, y_recursive_memoization_axis)
+plt.title('Ricorsivo con memorizzazione')
+plt.xlabel('Lunghezza stringhe (caratteri)')
+plt.ylabel('Tempo impiegato (secondi)')
+plt.show()
+
+plt.plot(x_number_axis, y_bottom_up_axis)
+plt.title('Bottom Up')
+plt.xlabel('Lunghezza stringhe (caratteri)')
+plt.ylabel('Tempo impiegato (secondi)')
+plt.show()
