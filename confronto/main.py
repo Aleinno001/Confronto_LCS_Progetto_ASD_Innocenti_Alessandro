@@ -27,7 +27,7 @@ if response == 'M':
     auto_execution = False
 
 if auto_execution:
-    for i in range(1, 16):
+    for i in range(1, 14):
         x_number_axis.append(i)
 
         random_word_s1 = randomword(i)
@@ -52,6 +52,22 @@ if auto_execution:
         BottomUp.get_lcs(random_word_s1, random_word_s2)
         t1 = time()
         y_bottom_up_axis.append(t1 - t0)
+
+    # Plotting the data
+    plt.plot(y_brute_force_axis, label='Forza-Bruta')
+    plt.plot(y_recursive_axis, label='Ricorsivo')
+    plt.plot(y_recursive_memoization_axis, label='Rico. con memorizzazione')
+    plt.plot(y_bottom_up_axis, label='Bottom-Up')
+
+    # Adding title and labels
+    plt.title('Confronto diretto dei 4 approcci')
+    plt.xlabel('Lunghezza stringhe (caratteri)')
+    plt.ylabel('Tempo impiegato (secondi)')
+
+    # Showing legend
+    plt.legend()
+
+    plt.show()
 else:
     different_nm = False
     response = input(
