@@ -5,10 +5,10 @@ from approcci_lcs.RicorsivoConMemorizzazione import RicorsivoConMemorizzazione
 
 class TestRicorsivoConMemoria(unittest.TestCase):
     def test_funzionamento(self):
-        ricm = RicorsivoConMemorizzazione('KAPBCDEFGMHIII', 'ABADRMMMMMHUBCDEFGHIKI')
+        ricm = RicorsivoConMemorizzazione('KAPCDEGMHIII', 'AADRMMHUBCDEGHIKI')
 
-        correct_lcs = 'ABCDEFGHII'
-        correct_lcs_length = 10
+        correct_lcs = 'ACDEGHII'
+        correct_lcs_length = 8
 
         ricm.lcs()
 

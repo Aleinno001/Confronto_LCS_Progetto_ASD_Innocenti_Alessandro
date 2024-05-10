@@ -1,12 +1,13 @@
 from itertools import combinations
 
-
-def subsequence_finder(s):  # O(2^n)
-    out = set()
-    for r in range(1, len(s) + 1):
-        for c in combinations(s, r):
-            out.add(''.join(c))
-    return sorted(out)
+def subseq(s):
+    h = [""]
+    n = len(s)
+    for i in range(n):
+        l = len(h)
+        for j in range(l):
+            h.append(h[j] + s[i])
+    return h
 
 
 class ForzaBruta:
@@ -14,7 +15,8 @@ class ForzaBruta:
     string = ''
 
     def __init__(self, s1, s2):
-        self.s1_subsequences = subsequence_finder(s1)
+        #self.s1_subsequences = subsequence_finder(s1)
+        self.s1_subsequences = subseq(s1)
         self.s2 = s2
 
     def lcs(self):
@@ -22,7 +24,7 @@ class ForzaBruta:
 
     def lcs_length_and_string(self):
         max_lcs_length = 0
-        for sub in self.s1_subsequences[::-1]:
+        for sub in self.s1_subsequences:
             temp_lcs_length = self._is_subsequence(sub)
             if temp_lcs_length > max_lcs_length:
                 max_lcs_length = temp_lcs_length

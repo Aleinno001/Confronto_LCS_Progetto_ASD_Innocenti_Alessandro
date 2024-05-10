@@ -7,15 +7,16 @@ class Ricorsivo:
         self.s2 = s2
 
     def lcs(self):
-        self.length = self.lcs_length(len(self.s1), len(self.s2))
+        self.length = self.lcs_length(self.s1, self.s2, len(self.s1), len(self.s2))
         self.string = self.lcs_string()
 
-    def lcs_length(self, i, j):
-        if i == 0 or j == 0:
+    def lcs_length(self, s1, s2, m, n):
+        if m == 0 or n == 0:
             return 0
-        if self.s1[i - 1] == self.s2[j - 1]:
-            return 1 + self.lcs_length(i - 1, j - 1)
-        return max(self.lcs_length(i, j - 1), self.lcs_length(i - 1, j))
+        elif s1[m-1] == s2[n-1]:
+            return 1 + self.lcs_length(s1, s2, m-1, n-1)
+        else:
+            return max(self.lcs_length(s1, s2, m, n-1), self.lcs_length(s1, s2, m-1, n))
 
     def lcs_string(self):
         i = len(self.s1)
@@ -26,7 +27,7 @@ class Ricorsivo:
                 lcs.append(self.s1[i - 1])
                 i -= 1
                 j -= 1
-            elif self.lcs_length(i, j - 1) > self.lcs_length(i - 1, j):
+            elif self.lcs_length(self.s1, self.s2, i, j - 1) > self.lcs_length(self.s1, self.s2, i - 1, j):
                 j -= 1
             else:
                 i -= 1
