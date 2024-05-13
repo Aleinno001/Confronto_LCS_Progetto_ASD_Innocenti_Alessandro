@@ -61,7 +61,7 @@ if auto_execution:
         y_bottom_up_axis.append(t1 - t0)
 else:
     different_nm = False
-    response = input("Vuoi mantenere le lunghezze delle stringhe uguali(m=n)?[Digitare [S] se si/altro o niente per mantenere la lunghezza minore fissa e variare la lunghezza dell'altra stringa")
+    response = input("Vuoi mantenere le lunghezze delle stringhe uguali(m=n)?[Digitare [S] se si/altro o niente per mantenere la lunghezza minore fissa e variare la lunghezza dell'altra stringa]:")
     if response == 'S':
         different_nm = True
 
