@@ -1,11 +1,11 @@
 import unittest
 
-from approcci_lcs import RicorsivoConMemorizzazione
+from approcci_lcs import get_ric_mem_lcs
 
 
 class TestRicorsivoConMemoria(unittest.TestCase):
     def test_funzionamento(self):
-        result = RicorsivoConMemorizzazione.get_lcs('KAPCDEGMHIII', 'AADRMMHUBCDEGHIKI')
+        result = get_ric_mem_lcs('KAPCDEGMHIII', 'AADRMMHUBCDEGHIKI')
 
         correct_lcs = 'ACDEGHII'
         correct_lcs_length = 8

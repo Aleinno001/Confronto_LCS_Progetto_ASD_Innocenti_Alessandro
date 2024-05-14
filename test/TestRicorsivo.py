@@ -1,10 +1,10 @@
 import unittest
-from approcci_lcs import Ricorsivo
+from approcci_lcs import get_ric_lcs
 
 
 class TestRicorsivo(unittest.TestCase):
     def test_corretto_funzionamento(self):
-        result = Ricorsivo.get_lcs('KAPCDEGMHIII', 'AADRMMHUBCDEGHIKI')
+        result = get_ric_lcs('KAPCDEGMHIII', 'AADRMMHUBCDEGHIKI')
 
         correct_lcs = 'ACDEGHII'
         correct_lcs_length = 8

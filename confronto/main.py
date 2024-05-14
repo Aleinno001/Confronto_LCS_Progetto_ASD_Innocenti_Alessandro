@@ -1,6 +1,6 @@
 import sys
 
-from approcci_lcs import ForzaBruta, Ricorsivo, RicorsivoConMemorizzazione, BottomUp
+from approcci_lcs import get_brute_force_lcs, get_ric_lcs, get_ric_mem_lcs, get_bottom_up_lcs
 from time import time
 import random
 import string
@@ -61,22 +61,22 @@ if auto_execution:
         random_word_s2 = randomword(i)
 
         t0 = time()
-        ForzaBruta.get_lcs(random_word_s1, random_word_s2)
+        get_brute_force_lcs(random_word_s1, random_word_s2)
         t1 = time()
         y_brute_force_axis.append(t1 - t0)
 
         t0 = time()
-        Ricorsivo.get_lcs(random_word_s1, random_word_s2)
+        get_ric_lcs(random_word_s1, random_word_s2)
         t1 = time()
         y_recursive_axis.append(t1 - t0)
 
         t0 = time()
-        RicorsivoConMemorizzazione.get_lcs(random_word_s1, random_word_s2)
+        get_ric_mem_lcs(random_word_s1, random_word_s2)
         t1 = time()
         y_recursive_memoization_axis.append(t1 - t0)
 
         t0 = time()
-        BottomUp.get_lcs(random_word_s1, random_word_s2)
+        get_bottom_up_lcs(random_word_s1, random_word_s2)
         t1 = time()
         y_bottom_up_axis.append(t1 - t0)
 else:
@@ -103,7 +103,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            ForzaBruta.get_lcs(random_word_s1, random_word_s2)
+            get_brute_force_lcs(random_word_s1, random_word_s2)
             t1 = time()
             y_brute_force_axis.append(t1 - t0)
 
@@ -114,7 +114,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            Ricorsivo.get_lcs(random_word_s1, random_word_s2)
+            get_ric_lcs(random_word_s1, random_word_s2)
             t1 = time()
             y_recursive_axis.append(t1 - t0)
 
@@ -125,7 +125,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            RicorsivoConMemorizzazione.get_lcs(random_word_s1, random_word_s2)
+            get_ric_mem_lcs(random_word_s1, random_word_s2)
             t1 = time()
             y_recursive_memoization_axis.append(t1 - t0)
 
@@ -136,7 +136,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            BottomUp.get_lcs(random_word_s1, random_word_s2)
+            get_bottom_up_lcs(random_word_s1, random_word_s2)
             t1 = time()
             y_bottom_up_axis.append(t1 - t0)
     else:
@@ -171,7 +171,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            ForzaBruta.get_lcs(fixed_random_word, random_word_s2)
+            get_brute_force_lcs(fixed_random_word, random_word_s2)
             t1 = time()
             y_brute_force_axis.append(t1 - t0)
 
@@ -182,7 +182,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            Ricorsivo.get_lcs(fixed_random_word, random_word_s2)
+            get_ric_lcs(fixed_random_word, random_word_s2)
             t1 = time()
             y_recursive_axis.append(t1 - t0)
 
@@ -193,7 +193,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            RicorsivoConMemorizzazione.get_lcs(fixed_random_word, random_word_s2)
+            get_ric_mem_lcs(fixed_random_word, random_word_s2)
             t1 = time()
             y_recursive_memoization_axis.append(t1 - t0)
 
@@ -204,7 +204,7 @@ else:
             random_word_s2 = randomword(i)
 
             t0 = time()
-            BottomUp.get_lcs(fixed_random_word, random_word_s2)
+            get_bottom_up_lcs(fixed_random_word, random_word_s2)
             t1 = time()
             y_bottom_up_axis.append(t1 - t0)
 

@@ -1,10 +1,10 @@
 import unittest
-from approcci_lcs import ForzaBruta
+from approcci_lcs import get_brute_force_lcs
 
 
 class TestForzaBruta(unittest.TestCase):
     def test_corretto_funzionamento(self):
-        result = ForzaBruta.get_lcs('KAPCDEGMHIII', 'AADRMMHUBCDEGHIKI')
+        result = get_brute_force_lcs('KAPCDEGMHIII', 'AADRMMHUBCDEGHIKI')
 
         correct_lcs = 'ACDEGHII'
         correct_lcs_length = 8
