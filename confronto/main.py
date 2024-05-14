@@ -1,7 +1,7 @@
 import sys
 
 from approcci_lcs import get_brute_force_lcs, get_ric_lcs, get_ric_mem_lcs, get_bottom_up_lcs
-from time import time
+from time import time, time_ns
 import random
 import string
 import matplotlib.pyplot as plt
@@ -60,24 +60,24 @@ if auto_execution:
         random_word_s1 = randomword(i)
         random_word_s2 = randomword(i)
 
-        t0 = time()
+        t0 = time_ns() / (10 ** 9)
         get_brute_force_lcs(random_word_s1, random_word_s2)
-        t1 = time()
+        t1 = time_ns() / (10 ** 9)
         y_brute_force_axis.append(t1 - t0)
 
-        t0 = time()
+        t0 = time_ns() / (10 ** 9)
         get_ric_lcs(random_word_s1, random_word_s2)
-        t1 = time()
+        t1 = time_ns() / (10 ** 9)
         y_recursive_axis.append(t1 - t0)
 
-        t0 = time()
+        t0 = time_ns() / (10 ** 9)
         get_ric_mem_lcs(random_word_s1, random_word_s2)
-        t1 = time()
+        t1 = time_ns() / (10 ** 9)
         y_recursive_memoization_axis.append(t1 - t0)
 
-        t0 = time()
+        t0 = time_ns() / (10 ** 9)
         get_bottom_up_lcs(random_word_s1, random_word_s2)
-        t1 = time()
+        t1 = time_ns() / (10 ** 9)
         y_bottom_up_axis.append(t1 - t0)
 else:
     different_nm = False
@@ -102,9 +102,9 @@ else:
             random_word_s1 = randomword(i)
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_brute_force_lcs(random_word_s1, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_brute_force_axis.append(t1 - t0)
 
         for i in range(1, nr + 1):
@@ -113,9 +113,9 @@ else:
             random_word_s1 = randomword(i)
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_ric_lcs(random_word_s1, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_recursive_axis.append(t1 - t0)
 
         for i in range(1, nrm + 1):
@@ -124,9 +124,9 @@ else:
             random_word_s1 = randomword(i)
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_ric_mem_lcs(random_word_s1, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_recursive_memoization_axis.append(t1 - t0)
 
         for i in range(1, nbu + 1):
@@ -135,9 +135,9 @@ else:
             random_word_s1 = randomword(i)
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_bottom_up_lcs(random_word_s1, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_bottom_up_axis.append(t1 - t0)
     else:
         fixed_mfb = get_input_integer(
@@ -170,9 +170,9 @@ else:
 
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_brute_force_lcs(fixed_random_word, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_brute_force_axis.append(t1 - t0)
 
         fixed_random_word = randomword(fixed_mr)
@@ -181,9 +181,9 @@ else:
 
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_ric_lcs(fixed_random_word, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_recursive_axis.append(t1 - t0)
 
         fixed_random_word = randomword(fixed_mrm)
@@ -192,9 +192,9 @@ else:
 
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_ric_mem_lcs(fixed_random_word, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_recursive_memoization_axis.append(t1 - t0)
 
         fixed_random_word = randomword(fixed_mbu)
@@ -203,9 +203,9 @@ else:
 
             random_word_s2 = randomword(i)
 
-            t0 = time()
+            t0 = time_ns() / (10 ** 9)
             get_bottom_up_lcs(fixed_random_word, random_word_s2)
-            t1 = time()
+            t1 = time_ns() / (10 ** 9)
             y_bottom_up_axis.append(t1 - t0)
 
 plt.plot(x_brute_force_axis, y_brute_force_axis, label='Forza-Bruta')
