@@ -45,13 +45,13 @@ y_bottom_up_axis = []
 
 auto_execution = False
 
-response = input(
+response1 = input(
     "Vuoi eseguire il programma con i valori di default?[Digitare [S] se si/ altro o niente per mod. manuale]: ")
-if response == 'S':
+if response1 == 'S':
     auto_execution = True
 
 if auto_execution:
-    for i in range(1, 16):
+    for i in range(1, 17):
         x_brute_force_axis.append(i)
         x_recursive_axis.append(i)
         x_recursive_memoization_axis.append(i)
@@ -81,12 +81,12 @@ if auto_execution:
         y_bottom_up_axis.append(t1 - t0)
 else:
     different_nm = False
-    response = input(
+    response2 = input(
         "Vuoi mantenere le lunghezze delle stringhe uguali(m=n)?[Digitare [S] se si/altro o niente per mantenere la lunghezza minore fissa e variare la lunghezza dell'altra stringa]:")
-    if response == 'S':
+    if response2 == 'S':
         different_nm = True
 
-    if response:
+    if different_nm:
         nfb = get_input_integer(
             "Inserisci il range della lunghezza delle stringhe per l'algoritmo Forza-Bruta (è fortemente consigliato inserire un valore 9<n<21): ")
         nr = get_input_integer(
