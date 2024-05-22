@@ -1,10 +1,12 @@
 import sys
+import webbrowser
 
 from approcci_lcs import get_brute_force_lcs, get_ric_lcs, get_ric_mem_lcs, get_bottom_up_lcs
-from time import time, time_ns
+from time import time_ns
 import random
 import string
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
+import mpld3
 
 
 sys.setrecursionlimit(999999999)
@@ -28,11 +30,15 @@ def get_input_integer(text):
 
 
 def graph_plot(y_axis, title):
-    plt.plot(y_axis)
-    plt.title(title)
-    plt.xlabel('Lunghezza in caratteri')
-    plt.ylabel('Tempo impiegato (secondi)')
-    plt.show()
+    fig = figure()
+    ax = fig.gca()
+    ax.plot(y_axis)
+    ax.set_title(title)
+    ax.set_xlabel('Lunghezza in caratteri')
+    ax.set_ylabel('Tempo impiegato (secondi)')
+    html_str = mpld3.fig_to_html(fig)
+    with open(title+'.html', 'w') as html_file:
+        html_file.write(html_str)
 
 
 x_brute_force_axis = []
@@ -209,20 +215,27 @@ else:
             t1 = time_ns() / (10 ** 9)
             y_bottom_up_axis.append(t1 - t0)
 
-plt.plot(x_brute_force_axis, y_brute_force_axis, label='Forza-Bruta')
-plt.plot(x_recursive_axis, y_recursive_axis, label='Ricorsivo')
-plt.plot(x_recursive_memoization_axis, y_recursive_memoization_axis, label='Ric. con memorizzazione')
-plt.plot(x_bottom_up_axis, y_bottom_up_axis, label='Bottom-Up')
-plt.title('Confronto diretto dei 4 approcci')
-plt.xlabel('Lunghezza stringhe (caratteri)')
-plt.ylabel('Tempo impiegato (secondi)')
-plt.legend()
-plt.show()
+fig = figure()
+
+ax = fig.gca()
+ax.plot(x_brute_force_axis, y_brute_force_axis, label='Forza-Bruta')
+ax.plot(x_recursive_axis, y_recursive_axis, label='Ricorsivo')
+ax.plot(x_recursive_memoization_axis, y_recursive_memoization_axis, label='Ric. con memorizzazione')
+ax.plot(x_bottom_up_axis, y_bottom_up_axis, label='Bottom-Up')
+ax.set_title('Confronto diretto dei 4 approcci')
+ax.set_xlabel('Lunghezza stringhe (caratteri)')
+ax.set_ylabel('Tempo impiegato (secondi)')
+ax.legend()
+html_str = mpld3.fig_to_html(fig)
+with open('confrontoDiretto.html', 'w') as html_file:
+    html_file.write(html_str)
+webbrowser.open('confrontoDiretto.html')
 
 graph_plot(y_brute_force_axis, 'Forza Bruta')
-
+webbrowser.open('Forza Bruta.html')
 graph_plot(y_recursive_axis, 'Ricorsivo')
-
+webbrowser.open('Ricorsivo.html')
 graph_plot(y_recursive_memoization_axis, 'Ricorsivo con memorizzazione')
-
+webbrowser.open('Ricorsivo con memorizzazione.html')
 graph_plot(y_bottom_up_axis, 'Bottom Up')
+webbrowser.open('Bottom Up.html')
