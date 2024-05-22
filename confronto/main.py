@@ -216,7 +216,6 @@ else:
             y_bottom_up_axis.append(t1 - t0)
 
 fig = figure()
-
 ax = fig.gca()
 ax.plot(x_brute_force_axis, y_brute_force_axis, label='Forza-Bruta')
 ax.plot(x_recursive_axis, y_recursive_axis, label='Ricorsivo')
